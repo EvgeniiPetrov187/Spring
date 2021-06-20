@@ -27,4 +27,9 @@ public class ProductRepository {
     public void delete(long id){
         productMap.remove(id);
     }
+
+    public Product findById(Long id){
+        return productMap.get(id);
+    }
 }
+
