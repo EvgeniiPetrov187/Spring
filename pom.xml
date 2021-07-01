@@ -12,6 +12,8 @@
     <modules>
         <module>lesson1-java-ee-servlet-api</module>
         <module>lesson2-spring</module>
+        <module>lesson3-spring-mvc</module>
+        <module>lesson4-spring-boot</module>
     </modules>
 
     <properties>
