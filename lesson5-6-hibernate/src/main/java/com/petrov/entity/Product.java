@@ -1,7 +1,8 @@
-package com.petrov;
+package com.petrov.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -19,6 +20,13 @@ public class Product {
 
     @Column(nullable = false)
     private Integer cost;
+
+    @ManyToMany
+    @JoinTable(name = "costumer_product",
+    joinColumns = @JoinColumn(name = "product_id"),
+    inverseJoinColumns = @JoinColumn(name = "costumer_id"))
+
+    private List<Costumer> costumers;
 
     public Product() {
     }
@@ -51,6 +59,14 @@ public class Product {
 
     public void setCost(Integer cost) {
         this.cost = cost;
+    }
+
+    public List<Costumer> getCostumers() {
+        return costumers;
+    }
+
+    public void setCostumers(List<Costumer> costumers) {
+        this.costumers = costumers;
     }
 
     @Override

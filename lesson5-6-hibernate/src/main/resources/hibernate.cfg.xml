@@ -15,6 +15,7 @@
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.format_sql">true</property>
 
-        <mapping class="com.petrov.Product"/>
+        <mapping class="com.petrov.entity.Product"/>
+        <mapping class="com.petrov.entity.Costumer"/>
     </session-factory>
 </hibernate-configuration>
