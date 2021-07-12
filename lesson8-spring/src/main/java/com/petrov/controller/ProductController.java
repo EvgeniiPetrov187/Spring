@@ -55,7 +55,7 @@ public class ProductController {
         if (maxPriceFilter.isPresent())
             spec = spec.and(ProductSpecifications.maxPrice(maxPriceFilter.get()));
 
-        if (sort.isPresent()) { // проверка на наличие сортировки
+        if (sort.isPresent() && !sort.get().isEmpty()) { // проверка на наличие сортировки
             model.addAttribute("products", productRepository.findAll(spec,
                     PageRequest.of(page.orElse(1) - 1, size.orElse(3), Sort.by(sort.get()).ascending())));
         } else {
