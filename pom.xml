@@ -17,6 +17,7 @@
         <module>lesson5-6-hibernate</module>
         <module>lesson7-spring-data</module>
         <module>lesson8-spring</module>
+        <module>lesson9-spring-rest</module>
     </modules>
 
     <properties>
