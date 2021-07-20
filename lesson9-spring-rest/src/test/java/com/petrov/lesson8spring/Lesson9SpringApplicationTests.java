@@ -1,10 +1,10 @@
-package com.petrov.lesson4springboot;
+package com.petrov.lesson8spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 //@SpringBootTest
-class Lesson7SpringApplicationTests {
+class Lesson8SpringApplicationTests {
 
 	@Test
 	void contextLoads() {
