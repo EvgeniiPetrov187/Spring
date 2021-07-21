@@ -1,0 +1,30 @@
+GET http://localhost:8389/lesson9-spring-rest/api/v1/products/2
+
+####
+
+GET http://localhost:8389/lesson9-spring-rest/api/v1/products/all
+
+####
+
+POST http://localhost:8389/lesson9-spring-rest/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "Egg",
+    "cost": 20
+  }
+
+###
+
+PUT http://localhost:8389/lesson9-spring-rest/api/v1/products
+Content-Type: application/json
+
+{
+  "id": 7,
+  "name": "Egg",
+  "cost": 20
+}
+
+###
+
+DELETE http://localhost:8389/lesson9-spring-rest/api/v1/products/8
