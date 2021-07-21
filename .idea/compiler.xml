@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lesson3-spring-mvc" />
+        <module name="lesson9-spring-rest" />
+        <module name="lesson9" />
+        <module name="lesson4-spring-boot" />
+        <module name="lesson8-spring" />
+        <module name="lesson1-java-ee-servlet-api" />
+        <module name="lesson2-spring" />
+        <module name="lesson7-spring-data" />
+        <module name="lesson5-6-hibernate" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lesson4-springboot" target="8" />
+      <module name="lesson9-spring-rest" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lesson4-spring-boot" options="-parameters" />
+      <module name="lesson7-spring-data" options="-parameters" />
+      <module name="lesson8-spring" options="-parameters" />
+      <module name="lesson9" options="-parameters" />
+      <module name="lesson9-spring-rest" options="-parameters" />
+    </option>
+  </component>
+</project>

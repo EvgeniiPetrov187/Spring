@@ -1,0 +1,7 @@
+{
+  "timestamp": "2021-07-14T20:24:51.932+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "",
+  "path": "/lesson9-spring-rest/api/v1/products"
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.petrov.lesson8spring.Lesson8SpringApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.petrov.lesson8spring.Lesson8SpringApplicationTests

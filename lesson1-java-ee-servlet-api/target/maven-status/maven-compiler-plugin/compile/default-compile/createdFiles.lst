@@ -1,0 +1,7 @@
+com\petrov\FirstServlet.class
+com\petrov\BootstrapListener.class
+com\petrov\ProductServlet.class
+com\petrov\FirstHttpServlet.class
+com\petrov\persist\Product.class
+com\petrov\EncodingFilter.class
+com\petrov\persist\ProductRepository.class
