@@ -19,17 +19,18 @@ mvn clean install
 mkdir -p /opt/webapp || exit
 cp lesson9-spring-rest/target/lesson9-spring-rest-0.0.1-SNAPSHOT.jar /opt/webapp/app.jar
 
-chown spring_boot:spring_boot /opt/webapp/app.jar
+useradd spring_angular
+chown spring_angulart:spring_angular /opt/webapp/app.jar
 chmod 500 /opt/webapp/app.jar
 
 echo "!------ Creating a systemctl daemon descriptor ------!"
 cd deploy || exit
 
-cp spring-angular.service /etc/systemd/system/spring-angular.service
+cp spring-angular.service /etc/systemd/system/spring-boot-app.service
 
 echo "!------ Running the new daemon ------!"
 systemctl daemon-reload
-systemctl start spring-angular
+systemctl start spring-boot-app
 
 echo "!------ Configuring NGINX ------!"
 cp application.nginx.conf /etc/nginx/sites-available/default
