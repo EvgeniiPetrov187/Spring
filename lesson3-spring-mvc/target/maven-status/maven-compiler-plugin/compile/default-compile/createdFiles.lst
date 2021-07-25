@@ -1,0 +1,6 @@
+com\petrov\controller\ProductController.class
+com\petrov\AppConfig.class
+com\petrov\persist\Product.class
+com\petrov\controller\NotFoundException.class
+com\petrov\WebInitializer.class
+com\petrov\persist\ProductRepository.class

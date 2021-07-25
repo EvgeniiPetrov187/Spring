@@ -1,0 +1,10 @@
+[Unit]
+Description=A Spring Boot application
+After=syslog.target
+
+[Service]
+User=spring_boot
+ExecStart=java -jar /opt/webapp/app.jar --spring.datasource.username=my_user --spring.datasource.password=password SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

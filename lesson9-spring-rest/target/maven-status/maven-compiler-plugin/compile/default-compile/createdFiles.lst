@@ -1,0 +1,11 @@
+com\petrov\rest\BadRequestException.class
+com\petrov\Lesson9App.class
+com\petrov\controller\NotFoundException.class
+com\petrov\controller\ProductListParam.class
+com\petrov\controller\ProductController.class
+com\petrov\service\ProductServiceImpl.class
+com\petrov\persist\Product.class
+com\petrov\persist\ProductSpecifications.class
+com\petrov\rest\ProductResource.class
+com\petrov\service\ProductService.class
+com\petrov\persist\ProductRepository.class

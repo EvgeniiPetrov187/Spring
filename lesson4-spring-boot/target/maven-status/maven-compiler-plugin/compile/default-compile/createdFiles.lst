@@ -1,0 +1,5 @@
+com\petrov\controller\ProductController.class
+com\petrov\Lesson4SpringBootApplication.class
+com\petrov\persist\Product.class
+com\petrov\controller\NotFoundException.class
+com\petrov\persist\ProductRepository.class
