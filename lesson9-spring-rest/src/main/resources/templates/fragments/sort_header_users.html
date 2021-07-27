@@ -1,14 +1,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <th scope="col" th:fragment="sort_header (header, title)">[[${header}]]
-    <a th:href="@{/products(
+    <a th:href="@{/users(
                         page=${param.page},
-                        size=${products.size},
+                        size=${users.size},
                         sort=${title},
-                        direction=${productListParam.getReverse()},
+                        direction=${userListParam.getReverse()},
                         titleFilter=${param.titleFilter},
-                        minPriceFilter=${param.minPriceFilter},
-                        maxPriceFilter=${param.maxPriceFilter})}">
+                        minAgeFilter=${param.minAgeFilter},
+                        maxAgeFilter=${param.maxAgeFilter})}">
         <i class="fa" th:classappend="${#strings.equals(#request.getParameter('direction'), 'desc')} ? 'fa-sort-down' : 'fa-sort-up'"></i>
     </a>
 </th>
