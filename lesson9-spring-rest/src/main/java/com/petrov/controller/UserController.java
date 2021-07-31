@@ -1,6 +1,6 @@
 package com.petrov.controller;
 
-import com.petrov.persist.User;
+import com.petrov.persist.RoleRepository;
 import com.petrov.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/users")
@@ -21,9 +23,12 @@ public class UserController {
 
     private final UserService userService;
 
+    private final RoleRepository roleRepository;
+
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RoleRepository roleRepository) {
         this.userService = userService;
+        this.roleRepository = roleRepository;
     }
 
 
@@ -39,6 +44,9 @@ public class UserController {
     public String newUserForm(Model model) {
         logger.info("New user page requested");
         model.addAttribute("userDto", new UserDto());
+        model.addAttribute("roles", roleRepository.findAll().stream()
+                .map(role -> new RoleDto(role.getId(), role.getName()))
+                .collect(Collectors.toList()));
         return "new_user_form";
     }
 
@@ -48,19 +56,27 @@ public class UserController {
 
         model.addAttribute("userDto", userService.findById(id)
                 .orElseThrow(() -> new NotFoundException("User not found")));
+        model.addAttribute("roles", roleRepository.findAll().stream()
+                .map(role -> new RoleDto(role.getId(), role.getName()))
+                .collect(Collectors.toList()));
         return "new_user_form";
     }
 
     @PostMapping
-    public String update(@Valid UserDto userDto,  BindingResult result) {
+    public String update(@Valid UserDto userDto, BindingResult result, Model model) {
         logger.info("Saving user");
 
-
         if (result.hasErrors()) {
+            model.addAttribute("roles", roleRepository.findAll().stream()
+                    .map(role -> new RoleDto(role.getId(), role.getName()))
+                    .collect(Collectors.toList()));
             return "new_user_form";
         }
 
         if (!userDto.getPassword().equals(userDto.getPasswordRpt())) {
+            model.addAttribute("roles", roleRepository.findAll().stream()
+                    .map(role -> new RoleDto(role.getId(), role.getName()))
+                    .collect(Collectors.toList()));
             result.rejectValue("passwordRpt", "", "Password is wrong");
             return "new_user_form";
         }

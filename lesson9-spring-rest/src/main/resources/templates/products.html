@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="fragments/head :: head"></head>
 
@@ -9,7 +10,8 @@
 
 <div class="container">
     <div class="row py-2">
-        <div class="col-12">
+        <!-- видимость кнопок-->
+        <div class="col-12" sec:authorize="hasRole('SUPER_ADMIN')">
             <a class="btn btn-primary" th:href="@{/products/new}">Add Product</a>
         </div>
         <div class="col-12 mt-3">
@@ -60,7 +62,8 @@
                     <th scope="row" th:text="${product.id}">1</th>
                     <td th:text="${product.name}">Apple</td>
                     <td th:text="${product.cost}">10</td>
-                    <td>
+                    <!-- видимость кнопок-->
+                    <td sec:authorize="hasRole('SUPER_ADMIN')">
                         <a class="btn btn-success" th:href="@{/products/{id}(id = ${product.id})}"><i
                                 class="fas fa-edit"></i></a>
                         <form class="d-inline" th:method="delete" th:action="@{/products/{id}(id = ${product.id})}">
@@ -74,12 +77,10 @@
                 </tbody>
             </table>
         </div>
-        <!-- проверка пустой ли список продуктов для отображения номеров страниц -->
         <div th:if="${products.hasContent()}" class="col-12">
             <nav aria-label="...">
                 <ul class="pagination">
 
-                    <!-- возврат к предыдущей странице со всеми параметрами  -->
                     <li th:if="${products.hasPrevious()}" class="page-item">
                         <a class="page-link"
                            th:replace="fragments/paging :: paging ('Previos', ${products.getNumber()})"></a>

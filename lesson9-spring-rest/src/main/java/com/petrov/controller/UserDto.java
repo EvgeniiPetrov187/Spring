@@ -3,6 +3,7 @@ package com.petrov.controller;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 public class UserDto {
 
@@ -21,10 +22,19 @@ public class UserDto {
     @NotBlank
     private String passwordRpt;
 
+    private Set<RoleDto> roles;
+
     public UserDto(Long id, String username, Integer age) {
         this.id = id;
         this.username = username;
         this.age = age;
+    }
+
+    public UserDto(Long id, String username, Integer age, Set<RoleDto> roles) {
+        this.id = id;
+        this.username = username;
+        this.age = age;
+        this.roles = roles;
     }
 
     public UserDto(){}
@@ -67,5 +77,13 @@ public class UserDto {
 
     public void setPasswordRpt(String passwordRpt) {
         this.passwordRpt = passwordRpt;
+    }
+
+    public Set<RoleDto> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RoleDto> roles) {
+        this.roles = roles;
     }
 }
