@@ -1,15 +1,10 @@
 package com.petrov.controller;
 
-
-
-import java.math.BigDecimal;
-
-
-public class ProductListParam {
+public class UserListParam {
 
     private String titleFilter;
-    private BigDecimal minPriceFilter;
-    private BigDecimal maxPriceFilter;
+    private Integer minAgeFilter;
+    private Integer maxAgeFilter;
     private Integer page;
     private Integer size;
     private String sort;
@@ -25,20 +20,20 @@ public class ProductListParam {
         this.titleFilter = titleFilter;
     }
 
-    public BigDecimal getMinPriceFilter() {
-        return minPriceFilter;
+    public Integer getMinAgeFilter() {
+        return minAgeFilter;
     }
 
-    public void setMinPriceFilter(BigDecimal minPriceFilter) {
-        this.minPriceFilter = minPriceFilter;
+    public void setMinAgeFilter(Integer minAgeFilter) {
+        this.minAgeFilter = minAgeFilter;
     }
 
-    public BigDecimal getMaxPriceFilter() {
-        return maxPriceFilter;
+    public Integer getMaxAgeFilter() {
+        return maxAgeFilter;
     }
 
-    public void setMaxPriceFilter(BigDecimal maxPriceFilter) {
-        this.maxPriceFilter = maxPriceFilter;
+    public void setMaxAgeFilter(Integer maxAgeFilter) {
+        this.maxAgeFilter = maxAgeFilter;
     }
 
     public Integer getPage() {
@@ -72,7 +67,6 @@ public class ProductListParam {
     public void setDirection(String direction) {
         this.direction = direction;
     }
-
 
     public String getReverse() {
         try {
