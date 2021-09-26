@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="fragments/head :: head"></head>
 
@@ -9,7 +10,8 @@
 
 <div class="container">
     <div class="row py-2">
-        <div class="col-12">
+        <!-- видимость кнопок-->
+        <div class="col-12" sec:authorize="hasRole('SUPER_ADMIN')">
             <a class="btn btn-primary" th:href="@{/users/new}">Add User</a>
         </div>
         <div class="col-12 mt-3">
@@ -40,16 +42,12 @@
             <table class="table table-bordered my-2">
                 <thead>
                 <tr>
-
-                    <!-- сортировка по ID -->
                     <th scope="col" th:replace="fragments/sort_header_users :: sort_header ('Id', 'id')">
                     </th>
 
-                    <!-- сортировка по имени -->
                     <th scope="col" th:replace="fragments/sort_header_users :: sort_header ('User name', 'username')">
                     </th>
 
-                    <!-- сортировка по цене -->
                     <th scope="col" th:replace="fragments/sort_header_users :: sort_header ('Age', 'age')">
                     </th>
                     <th scope="col">Actions</th>
@@ -60,11 +58,14 @@
                     <th scope="row" th:text="${user.id}">1</th>
                     <td th:text="${user.username}">Arnold</td>
                     <td th:text="${user.age}">30</td>
-                    <td>
-                        <a class="btn btn-success" th:href="@{/users/{id}(id = ${user.id})}"><i
-                                class="fas fa-edit"></i></a>
+                    <!-- видимость кнопок-->
+                    <td sec:authorize="hasRole('SUPER_ADMIN')">
+                        <a class="btn btn-success" th:href="@{/users/{id}(id = ${user.id})}">
+                            <i class="fas fa-edit"></i></a>
                         <form class="d-inline" th:method="delete" th:action="@{/users/{id}(id = ${user.id})}">
-                            <button type="submit" a class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" a class="btn btn-danger">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -109,7 +110,6 @@
         </div>
     </div>
 </div>
-
 
 
 <th:block th:replace="fragments/scripts :: scripts"></th:block>
